@@ -1,3 +1,6 @@
+### React and Redux Quiz with Timer Project
+
+
 First run this command to get the project:
 ### 'git clone https://github.com/pzey2011/quiz780-app.git'
 
