@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 import { Question } from '../components/question';
+import { Result } from '../components/result';
 import { increaseStep , resetStep } from '../actions/mainActions';
 import { setUserAnswer , resetUserAnswers } from '../actions/questionActions';
 import { increaseTimer,resetTimer } from '../actions/counterActions';
@@ -66,6 +67,11 @@ class App extends Component {
                     setAnswer={(answer)=> {this.props.setQuestionAnswer(2,answer)}} 
                     selectedAnswer={this.props.questions.datas[2].user_answer} 
                     nextStep = {()=> {this.props.nextStep()}}
+                    />
+                 </div>
+                 <div style={{display: (this.props.main.step===3)?'':'none'}}>
+                    <Result
+                    questions={this.props.questions}
                     />
                  </div>
                 </div>

@@ -1,5 +1,6 @@
-const initialState = {
-  datas: [
+
+import Cookies from 'js-cookie';
+let datas: [
     {
       answers:["مجرد","متاهل"],
       title:'متاهلید یا مجرد؟',
@@ -16,6 +17,15 @@ const initialState = {
       user_answer:''
     }
   ]
+let json_str_datas = JSON.stringify(datas);
+if(typeof Cookies.get('questions')=== "undefined")
+  Cookies.set('questions', json_str_datas, { expires: 7 });
+let data_array=JSON.parse(Cookies.get('questions'));
+
+
+
+const initialState = {
+  datas: data_array
 };
 const questionReducer = (state = initialState, action) => { 
     switch (action.type) { 
@@ -26,19 +36,20 @@ const questionReducer = (state = initialState, action) => {
         state = {
           datas: tmp_questions
         }
-        
+        Cookies.set('questions', state.datas, { expires: 7 });
+
       break;
       case "RESET_USER_ANSWERS": 
         let tmp_questions1 = state.datas;
         for (var i = 0; i < tmp_questions1.length; i++) {
           tmp_questions1[i].user_answer="";
         }
-          
-
+      
         state = {
           datas: tmp_questions1
         }
-        
+        Cookies.set('questions', state.datas, { expires: 7 });
+
       break;
       default:
   
