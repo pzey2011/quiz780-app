@@ -8,13 +8,14 @@ export const Question =(props)=> {
 		e.preventDefault();
 		if($('#my-form'+props.id).parsley().validate())
 		{
+			props.setAnswer(props.answers[0],props.timer);
 			props.nextStep();
 		}
 	
 	}
 	return (
 		<React.Fragment>
-    	<p className="text-right">{(props.timer)+' :زمان سپری شده'}</p>        
+    	<p className="text-right">{'زمان سپری شده: '+(props.timer)}</p>        
 		 <div className="card my-card">
             <div className="card-body">
                 <h4 className="card-title">{'سوال '+(props.nth)}</h4>
@@ -30,7 +31,7 @@ export const Question =(props)=> {
 								value={props.answers[0]}
 								checked={props.selectedAnswer === props.answers[0]}
 							   	onChange={(e)=>
-								    props.setAnswer(props.answers[0])
+								    props.setAnswer(props.answers[0],props.timer)
 								}
 								/>
 								<label className="form-check-label" htmlFor="formCheck-1">{props.answers[0]}</label>
@@ -45,7 +46,7 @@ export const Question =(props)=> {
 							    value={props.answers[1]}
 							    checked={props.selectedAnswer === props.answers[1]}
 							   	onChange={(e)=>
-								    props.setAnswer(props.answers[1])
+								    props.setAnswer(props.answers[1],props.timer)
 								}
 							    />
 							    <label className="form-check-label" htmlFor="formCheck-2">{props.answers[1]}</label>

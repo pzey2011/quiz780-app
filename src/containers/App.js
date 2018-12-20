@@ -37,10 +37,10 @@ class App extends Component {
                     <Question 
                     id={0}
                     nth={'اول'} 
-                    timer={this.state.hours+"h - "+this.state.minutes+"m - "+this.state.seconds+"s"}
+                    timer={this.state.hours+"ساعت - "+this.state.minutes+"دقیقه - "+this.state.seconds+"ثانیه"}
                     title={this.props.questions.datas[0].title} 
                     answers={this.props.questions.datas[0].answers} 
-                    setAnswer={(answer)=> {this.props.setQuestionAnswer(0,answer)}} 
+                    setAnswer={(answer,timer)=> {this.props.setQuestionAnswer(0,answer,timer)}} 
                     selectedAnswer={this.props.questions.datas[0].user_answer} 
                     nextStep = {()=> {this.props.resetTimer();this.props.nextStep()}}
                     />
@@ -49,10 +49,10 @@ class App extends Component {
                     <Question 
                     id={1}
                     nth={'دوم'}
-                    timer={this.state.hours+"h - "+this.state.minutes+"m - "+this.state.seconds+"s"}
+                    timer={this.state.hours+"ساعت - "+this.state.minutes+"دقیقه - "+this.state.seconds+"ثانیه"}
                     title={this.props.questions.datas[1].title} 
                     answers={this.props.questions.datas[1].answers} 
-                    setAnswer={(answer)=> {this.props.setQuestionAnswer(1,answer)}} 
+                    setAnswer={(answer,timer)=> {this.props.setQuestionAnswer(1,answer,timer)}} 
                     selectedAnswer={this.props.questions.datas[1].user_answer} 
                     nextStep = {()=> {this.props.resetTimer();this.props.nextStep()}}
                     />
@@ -61,10 +61,10 @@ class App extends Component {
                     <Question
                     id={2} 
                     nth={'سوم'} 
-                    timer={this.state.hours+"h - "+this.state.minutes+"m - "+this.state.seconds+"s"}
+                    timer={this.state.hours+"ساعت - "+this.state.minutes+"دقیقه - "+this.state.seconds+"ثانیه"}
                     title={this.props.questions.datas[2].title} 
                     answers={this.props.questions.datas[2].answers} 
-                    setAnswer={(answer)=> {this.props.setQuestionAnswer(2,answer)}} 
+                    setAnswer={(answer,timer)=> {this.props.setQuestionAnswer(2,answer,timer)}} 
                     selectedAnswer={this.props.questions.datas[2].user_answer} 
                     nextStep = {()=> {this.props.nextStep()}}
                     />
@@ -92,8 +92,8 @@ const mapDispatchToProps = (dispatch) => {
         nextStep: () => {
           dispatch(increaseStep(1));
         },
-        setQuestionAnswer: (id,answer) =>{
-          dispatch(setUserAnswer(id,answer));
+        setQuestionAnswer: (id,answer,timer) =>{
+          dispatch(setUserAnswer(id,answer,timer));
         },
         increaseTimer: () =>{
           dispatch(increaseTimer());
