@@ -17,6 +17,7 @@ export const Result =(props)=> {
 		<React.Fragment>
 			<br /><br /><br />
 			<h4 className="text-center">نتایج</h4>
+			<h6 className="text-left">{'زمان سپری شده ی کل: '+(props.totalTime)}</h6>
 			<br /><br />
 			{results}
             		

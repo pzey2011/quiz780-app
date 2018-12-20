@@ -25,7 +25,6 @@ if(typeof Cookies.get('questions')=== "undefined")
   Cookies.set('questions', json_str_datas, { expires: 7 });
 
 let data_array=JSON.parse(Cookies.get('questions'));
-console.log(data_array);
 
 const initialState = {
   datas: data_array

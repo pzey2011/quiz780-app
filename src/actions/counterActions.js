@@ -8,3 +8,8 @@ export function resetTimer(num) {
       type: "RESET_TIMER"
     } 
 } 
+export function resetThisTimer(num) { 
+    return { 
+      type: "RESET_THIS_TIMER"
+    } 
+} 

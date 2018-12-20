@@ -1,7 +1,7 @@
 
 import Cookies from 'js-cookie';
 
-if(typeof Cookies.get('step')=== "undefined")
+if(isNaN(parseInt(Cookies.get('step'))))
 	Cookies.set('step', 0, { expires: 7 });
 
 let initStep=Cookies.get('step');
