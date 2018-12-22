@@ -15,10 +15,10 @@ export const Result =(props)=> {
 	});
 	return (
 		<React.Fragment>
-			<br /><br /><br />
+			<br />
 			<h4 className="text-center">نتایج</h4>
-			<h6 className="text-left">{'زمان سپری شده ی کل: '+(props.totalTime)}</h6>
-			<br /><br />
+			<h6 className="text-right">{'زمان سپری شده ی کل: '+(props.totalTime)}<img src="img/stopwatch.png" alt="timer"></img></h6>
+			<br />
 			{results}
             		
 

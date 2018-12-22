@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import './App.css';
 import { Question } from '../components/question';
 import { Result } from '../components/result';
 import { increaseStep , resetStep } from '../actions/mainActions';
@@ -12,23 +11,30 @@ class App extends Component {
         super();
         this.myInterval=function(){}
         this.startTimer=this.startTimer.bind(this);
+        this.stopTimer=this.stopTimer.bind(this);
   }
   startTimer(){
       this.myInterval = setInterval( () => {
         this.props.increaseTimer();
       }, 1000 );
   }
+  stopTimer(){
+    clearInterval(this.myInterval);
+  }
   componentDidMount(){
     
-    this.startTimer();
+    if(this.props.main.step===0)
+    {
+      this.startTimer();
+    }
   }
   render() {
     return (
       <div className="container">
             <div className="row">
                 <div className="col-md-12">
-                  <div className="text-center">
-                    <button onClick={() => { clearInterval(this.myInterval); this.startTimer(); this.props.resetTimer(); this.props.resetUserAnswers();this.props.resetStep()}} className="btn btn-success text-center">از نو شروع کن</button>
+                  <div className="text-center" style={{margin:'20px'}}>
+                    <button onClick={() => { this.stopTimer(); this.startTimer(); this.props.resetTimer(); this.props.resetUserAnswers();this.props.resetStep()}} className="btn btn-success text-center">شروع جدید</button>
                   </div>
                   <div style={{display: (this.props.main.step===0)?'':'none'}}>
                     <Question 
@@ -63,7 +69,7 @@ class App extends Component {
                     answers={this.props.questions.datas[2].answers} 
                     setAnswer={(answer,timer)=> {this.props.setQuestionAnswer(2,answer,timer)}} 
                     selectedAnswer={this.props.questions.datas[2].user_answer} 
-                    nextStep = {()=> {clearInterval(this.myInterval);this.props.nextStep()}}
+                    nextStep = {()=> {this.stopTimer();this.props.nextStep()}}
                     />
                  </div>
                  <div style={{display: (this.props.main.step===3)?'':'none'}}>

@@ -1,0 +1,10 @@
+
+.form-group:last-child{
+	margin-bottom:5px
+}
+.card.my-card{display:flex;align-items:center;box-shadow: 1px 1px 2px 2px #cccccc}
+.form-check-input {display: none;margin: 10px;}
+.form-check-label{width: 100%;padding: 10px;border: 1px solid #ccc;margin-bottom: 5px!important;cursor: pointer;}
+.form-check-label:hover{border-color:#555;}
+.form-check{padding-left: 0!important;}
+.selected{border-color:#555;}
