@@ -30,3 +30,11 @@
     transform: rotate(360deg);
   }
 }
+.parsley-errors-list{list-style:none}
+.parsley-errors-list li{color:red}
+.parsley-errors-list .parsley-required{font-size:.9em}
+.parsley-error{color:red; border-color:red}
+.checkbox-control.parsley-error label{color:red}
+#main .form label.error{color:red}
+#main .form .form-control.parsley-error{border:1px solid red}
+#main .form .form-control.parsley-success{border:1px solid green}

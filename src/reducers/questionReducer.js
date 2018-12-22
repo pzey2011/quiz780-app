@@ -1,6 +1,6 @@
 
 import Cookies from 'js-cookie';
-let datas: [
+let datas= [
     {
       answers:["مجرد","متاهل"],
       title:'متاهلید یا مجرد؟',
@@ -19,9 +19,9 @@ let datas: [
       user_answer:'',
       time_elapsed:''
     }
-  ]
+  ];
 let json_str_datas = JSON.stringify(datas);
-if(typeof Cookies.get('questions')=== "undefined")
+if(Cookies.get('questions')=== "undefined")
   Cookies.set('questions', json_str_datas, { expires: 7 });
 
 let data_array=JSON.parse(Cookies.get('questions'));

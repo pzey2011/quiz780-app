@@ -8,7 +8,6 @@ export const Question =(props)=> {
 		e.preventDefault();
 		if($('#my-form'+props.id).parsley().validate())
 		{
-			props.setAnswer(props.answers[0],props.timer);
 			props.nextStep();
 		}
 	
