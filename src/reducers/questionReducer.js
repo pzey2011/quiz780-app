@@ -21,7 +21,7 @@ let datas= [
     }
   ];
 let json_str_datas = JSON.stringify(datas);
-if(Cookies.get('questions')=== "undefined")
+if(Cookies.get('questions')=== undefined || typeof Cookies.get('questions')==='undefined')
   Cookies.set('questions', json_str_datas, { expires: 7 });
 
 let data_array=JSON.parse(Cookies.get('questions'));
